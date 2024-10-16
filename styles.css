@@ -46,13 +46,28 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Placeholder logo styling */
+/* Logo Container */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers both the logo and image */
+}
+
+/* Logo styling */
 .logo {
     font-size: 2rem;
     font-weight: bold;
     color: #03DAC6;
     text-align: center;
-    padding: 20px;
+    margin-bottom: 15px; /* Space between the logo and the image */
+}
+
+/* Circular logo image */
+.logo-image {
+    width: 100px;  /* Adjust size to make it bigger */
+    height: 100px; /* Same as width to maintain circle shape */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image fits properly within the circle */
 }
 
 /* Header Styling */
@@ -62,6 +77,8 @@ header {
     text-align: center;
     box-shadow: 0 4px 2px -2px gray;
     position: relative;
+    z-index: 1;
+    margin-left: 250px;
 }
 
 header::before {
@@ -72,6 +89,7 @@ header::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
 }
 
 header .logo {
@@ -97,12 +115,13 @@ header nav ul li {
 .side-nav {
     width: 250px;
     background-color: #1E1E1E;
-    position: fixed; /* Always visible */
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     padding-top: 60px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 .side-nav ul {
@@ -128,7 +147,7 @@ header nav ul li {
 
 /* Page content */
 main {
-    margin-left: 270px; /* Adjust as needed */
+    margin-left: 270px;
     padding: 40px;
 }
 
@@ -152,7 +171,34 @@ main p {
     margin: 15px 0;
 }
 
-/* Quiz Styling */
+/* Footer styles */
+footer {
+    background-color: #1E1E1E;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #03DAC6;
+    margin: 0 10px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    main {
+        margin-left: 250px;
+    }
+    .side-nav {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+    .menu-button {
+        display: none;
+    }
+}
 #quiz {
     margin-top: 30px;
     background-color: #1E1E1E;
@@ -245,33 +291,4 @@ main p {
 
 .comment p {
     margin: 0;
-}
-
-/* Footer styles */
-footer {
-    background-color: #1E1E1E;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-footer a {
-    color: #03DAC6;
-    margin: 0 10px;
-}
-
-/* Responsiveness */
-@media screen and (max-width: 768px) {
-    main {
-        margin-left: 250px; /* Ensure enough margin for the side nav */
-    }
-    .side-nav {
-        width: 250px;
-        height: 100%;
-        position: fixed;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    }
-    .menu-button {
-        display: none; /* Hide the menu button completely */
-    }
 }
